@@ -244,7 +244,7 @@ class Api extends CI_Controller
             }
 
             //输出数据 CROS
-            $this->output->set_header('Access-Control-Allow-Origin:http://localhost:8080')
+            $this->output->set_header('Access-Control-Allow-Origin:*')
             ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
             ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
             //->set_content_type('application/json', 'utf-8')
@@ -295,13 +295,13 @@ class Api extends CI_Controller
 
                 $returnData = $data['callback'] . "(" . json_encode($returnData) . ")";
 
-                $this->output->set_header('Access-Control-Allow-Origin:http://localhost:8080')
+                $this->output->set_header('Access-Control-Allow-Origin:*')
                 ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
                 ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
                 ->set_output($returnData);
                 return;
             }
-            $this->output->set_header('Access-Control-Allow-Origin:http://localhost:8080')
+            $this->output->set_header('Access-Control-Allow-Origin:*')
             ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
             ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
             ->set_output(json_encode($returnData));
@@ -354,7 +354,7 @@ class Api extends CI_Controller
 
                 $returnData = $data['callback'] . "(" . json_encode($returnData) . ")";
 
-                $this->output->set_header('Access-Control-Allow-Origin:http://localhost:8080')
+                $this->output->set_header('Access-Control-Allow-Origin:*')
                 ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
                 ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
                 ->set_content_type('application/json', 'utf-8')
@@ -364,7 +364,7 @@ class Api extends CI_Controller
 
             }
 
-            $this->output->set_header('Access-Control-Allow-Origin:http://localhost:8080')
+            $this->output->set_header('Access-Control-Allow-Origin:*')
             ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
             ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
             //->set_content_type('application/json', 'utf-8')
@@ -421,7 +421,7 @@ class Api extends CI_Controller
 
                 $returnData = $data['callback'] . "(" . json_encode($returnData) . ")";
 
-                $this->output->set_header('Access-Control-Allow-Origin:http://localhost:8080')
+                $this->output->set_header('Access-Control-Allow-Origin:*')
                 ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
                 ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
                 //->set_content_type('application/json', 'utf-8')
@@ -431,7 +431,7 @@ class Api extends CI_Controller
 
             }
 
-            $this->output->set_header('Access-Control-Allow-Origin:http://localhost:8080')
+            $this->output->set_header('Access-Control-Allow-Origin:*')
             ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
             ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
             //->set_content_type('application/json', 'utf-8')
