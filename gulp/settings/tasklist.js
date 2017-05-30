@@ -1,5 +1,5 @@
 var viewList = [
-  'chart',
+  //'chart',
   //'preload',
   //'table',
   //'index',
@@ -10,7 +10,8 @@ var viewList = [
   //'PaperPara',
   //'demo',
   //'datainterface',
-  // 'noteAnany'
+  // 'noteAnany',
+  'settings_menu'
 ];
 
 var taskList = {};
