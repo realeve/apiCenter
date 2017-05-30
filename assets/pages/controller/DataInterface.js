@@ -1,42 +1,9 @@
 var DBSourse = [{
   value: 0,
-  text: '质量综合管理系统'
+  text: '用户数据'
 }, {
   value: 1,
-  text: '小张核查'
-}, {
-  value: 2,
-  text: '码后核查'
-}, {
-  value: 3,
-  text: '机台作业'
-}, {
-  value: 4,
-  text: '库管系统'
-}, {
-  value: 5,
-  text: '质量控制中心'
-}, {
-  value: 6,
-  text: '号码三合一系统'
-}, {
-  value: 7,
-  text: '在线清数'
-}, {
-  value: 8,
-  text: '办公小助手'
-}, {
-  value: 9,
-  text: '钞纸在线质量检测'
-}, {
-  value: 10,
-  text: '质量图像数据库'
-}, {
-  value: 11,
-  text: '数据共享平台'
-}, {
-  value: 12,
-  text: '检封装箱数据库'
+  text: 'api管理'
 }];
 
 var isInited = false;
