@@ -149,8 +149,8 @@
 
        function updateTableUrl() {
          var date = getDateRange();
-         //var url = getRootPath(0) + '/QualityTable?tid=' + getUrlParam("tid") + (getUrlParam('daterange') == 'null' ? ("&tstart=" + date.start + "&tend=" + date.end) : ('&daterange=' + getUrlParam('daterange')));
-         var url = getRootPath(0) + '/QualityTable?tid=' + getUrlParam("tid") + "&tstart=" + date.start + "&tend=" + date.end;
+         //var url = getRootPath(0) + '/table?tid=' + getUrlParam("tid") + (getUrlParam('daterange') == 'null' ? ("&tstart=" + date.start + "&tend=" + date.end) : ('&daterange=' + getUrlParam('daterange')));
+         var url = getRootPath(0) + '/table?tid=' + getUrlParam("tid") + "&tstart=" + date.start + "&tend=" + date.end;
          $('[name="showTable"]').attr({
            href: url
          });

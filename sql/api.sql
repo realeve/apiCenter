@@ -167,7 +167,7 @@ INSERT INTO [dbo].[tblDataInterface] ([ID], [ApiID], [ApiName], [AuthorName], [T
 													</li>
 													<li>
 														 TimeEnd:结束时间；</li>
-												</ol>', N'U0VMRUNUIGEuSUQgYXMgSUQsYS5BcGlJRCBhcyDluo/lj7csYS5BdXRob3JOYW1lIGFzIOaJgOacieiAhSxiLkRCTmFtZSBhcyDmlbDmja7lupMsYS5BcGlOYW1lIGFzIOaOpeWPo+WQjeensCxhLnN0clNxbCBhcyDmn6Xor6Lor63lj6UsYS5QYXJhbXMgYXMg5Y+C5pWw5YiX6KGoIGZyb20gdGJsRGF0YUludGVyZmFjZSBhIGlubmVyIGpvaW4gdGJsRGF0YUJhc2VJbmZvIGIgICBvbiBhLkRCSUQgPSBiLkRCSUQgIHdoZXJlIEFwaUlEPjAgYW5kIGF1dGhvcm5hbWU9PyBvcmRlciBieSAx', N'author', N'1', N'http://localhost/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=2&M=3', null)
+												</ol>', N'U0VMRUNUIGEuSUQgYXMgSUQsYS5BcGlJRCBhcyDluo/lj7csYS5BdXRob3JOYW1lIGFzIOaJgOacieiAhSxiLkRCTmFtZSBhcyDmlbDmja7lupMsYS5BcGlOYW1lIGFzIOaOpeWPo+WQjeensCxhLnN0clNxbCBhcyDmn6Xor6Lor63lj6UsYS5QYXJhbXMgYXMg5Y+C5pWw5YiX6KGoIGZyb20gdGJsRGF0YUludGVyZmFjZSBhIGlubmVyIGpvaW4gdGJsRGF0YUJhc2VJbmZvIGIgICBvbiBhLkRCSUQgPSBiLkRCSUQgIHdoZXJlIEFwaUlEPjAgYW5kIGF1dGhvcm5hbWU9PyBvcmRlciBieSAy', N'author', N'1', N'http://localhost/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=2&M=3', null)
 GO
 GO
 INSERT INTO [dbo].[tblDataInterface] ([ID], [ApiID], [ApiName], [AuthorName], [Token], [ApiDesc], [strSQL], [Params], [DBID], [URL], [CreateDate]) VALUES (N'2', N'1', N'选择列表自定义设置                               ', N'develop                                 ', N'79d84495ca776ccb523114a2120e273ca80b315b                                                            ', N'<p>[功能说明]</p>

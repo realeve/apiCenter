@@ -60,7 +60,7 @@
     cache: 10, //数据缓存10分钟
     info: {
       select2: false,
-      qualitytable: false
+      table: false
     }
   };
 
@@ -634,7 +634,7 @@
     var hrefTag = window.location.href.split('/')[3];
     var url = hrefTag.split('?')[0];
     var str, obj;
-    if (url == 'qualitytable' || url == 'qualitychart') {
+    if (url == 'table' || url == 'chart') {
       str = hrefTag.split('&')[0];
     } else {
       var strTemp = window.location.href.split('?')[0].split(location.protocol + '//')[1].split(url)[1];
@@ -642,7 +642,7 @@
     }
 
     obj = $('[href=' + '"/' + url + '"]').parents('li');
-    if (window.location.href.split('/').length > 4 || url == 'qualitytable' || url == 'qualitychart') { //非一级标题
+    if (window.location.href.split('/').length > 4 || url == 'table' || url == 'chart') { //非一级标题
       obj = $('.page-sidebar [href*="' + str + '"]').parents('li');
     } else if (hrefTag == 'welcome' || hrefTag === '' || hrefTag == 'index.php') {
       obj = $('[href="/index.php"]').parents('li');
@@ -1068,7 +1068,7 @@
         var url;
         var curPage = window.location.pathname;
         //数据报表中有cart字段时，表示查询某车号信息
-        if ((curPage.indexOf('qualitytable') > 0 || curPage.indexOf('QualityTable') > 0) && location.hash.indexOf('cart') > 0) {
+        if ((curPage.indexOf('table') > 0 || curPage.indexOf('table') > 0) && location.hash.indexOf('cart') > 0) {
           location.hash = "#cart=" + str.toUpperCase();
           return;
         }
@@ -1093,7 +1093,7 @@
           } else {
 
             //数据报表中有cart字段时，表示查询某车号信息
-            // if ((curPage.indexOf('qualitytable') > 0 || curPage.indexOf('QualityTable') > 0) && location.hash.indexOf('cart') > 0) {
+            // if ((curPage.indexOf('table') > 0 || curPage.indexOf('table') > 0) && location.hash.indexOf('cart') > 0) {
             //   location.hash = "#cart=" + str.toUpperCase();
             //   return;
             // } else {

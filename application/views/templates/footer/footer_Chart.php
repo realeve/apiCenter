@@ -13,10 +13,10 @@
 <!-- BEGIN CORE PLUGINS -->
 <!--[if lt IE 9]>
 <script src="../../assets/global/plugins/respond.min.js"></script>
-<script src="../../assets/global/plugins/excanvas.min.js"></script> 
+<script src="../../assets/global/plugins/excanvas.min.js"></script>
 <![endif]-->
 <script src="../../assets/build/js/chart.min.js"></script>
 <script src="../../assets/pages/controller/CommonFunctions.min.js"></script>
-<script src="../../assets/pages/controller/QualityChart.min.js"></script>
+<script src="../../assets/pages/controller/chart.min.js"></script>
 </body>
 </html>

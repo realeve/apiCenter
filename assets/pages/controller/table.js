@@ -90,7 +90,7 @@ var dataTable = function() {
         }
       }
 
-      config.info.qualitytable = false;
+      config.info.table = false;
 
       for (i = 0; i < len; i++) {
         objRequest = {
@@ -183,7 +183,7 @@ var dataTable = function() {
 
     var rowData = api.row(0).data();
     var apiID = idList[settings.sInstance.replace('DataTables_Table_', '')];
-    var oSettings = $.parseJSON(localStorage.getItem('DataTables/qualitytable/' + apiID));
+    var oSettings = $.parseJSON(localStorage.getItem('DataTables/table/' + apiID));
 
     api.columns().indexes().flatten().each(function(i) {
       var column = api.column(i);
@@ -559,8 +559,8 @@ var dataTable = function() {
       .done(function(data) {
         data = $.parseJSON(data);
         renderDataTable(data, tableID, bFixhead);
-        if (!config.info.qualitytable) {
-          config.info.qualitytable = true;
+        if (!config.info.table) {
+          config.info.table = true;
           bsTips('数据加载完成', 1);
         }
       });

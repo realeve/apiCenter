@@ -1,0 +1,1 @@
+a:3:{s:4:"time";i:1496151697;s:3:"ttl";i:600;s:4:"data";s:306:"{"rows": 1,"cols": 4,"header":[{"title":"Value"},{"title":"Name"},{"title":"apiURL"},{"title":"tblID"}],"data":[["0","下拉选择框列表","DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=1&M=3&t=1","31"]],"title":"选择列表自定义设置","source":"数据来源:API设置管理"}";}
