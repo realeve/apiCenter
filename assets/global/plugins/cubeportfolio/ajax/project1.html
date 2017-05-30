@@ -1,0 +1,89 @@
+<div class="portfolio-content">
+    <div class="cbp-l-project-title">{cartnumber}</div>
+    <div class="cbp-l-project-subtitle">{machine} 于 {date} 生产</div>
+		<div class="mt-element-card mt-element-overlay">
+				<div class="row">
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="mt-card-item">
+							<div class="mt-card-avatar mt-overlay-1">
+									<img src="">
+							</div>
+							<div class="mt-card-content">
+								<h3 class="mt-card-name">{img0}</h3>
+								<p class="mt-card-desc font-grey-mint">{errcount0}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="mt-card-item">
+							<div class="mt-card-avatar mt-overlay-1">
+									<img src="">
+							</div>
+							<div class="mt-card-content">
+								<h3 class="mt-card-name">{img1}</h3>
+								<p class="mt-card-desc font-grey-mint">{errcount1}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="mt-card-item">
+							<div class="mt-card-avatar mt-overlay-1">
+									<img src="">
+							</div>
+							<div class="mt-card-content">
+								<h3 class="mt-card-name">{img2}</h3>
+								<p class="mt-card-desc font-grey-mint">{errcount2}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+    <div class="cbp-l-project-container">
+        <div class="cbp-l-project-desc">
+			{prodInfo}
+        </div>
+        <div class="cbp-l-project-details">
+            <div class="cbp-l-project-details-title">
+                <span>当天质量曲线</span>
+            </div>
+            <div class="cbp-l-project-details-list" id="chart" style="min-height:220px;">
+            </div>
+        </div>
+        <div class="cbp-l-project-details">
+            <div class="cbp-l-project-details-title">
+                <span>质量详情</span>
+            </div>
+            <ul class="cbp-l-project-details-list">
+                <li>
+                    <strong>好品率</strong>{goodrate}
+				</li>
+                <li>
+                    <strong>机台</strong>{machine}
+				</li>
+                <li>
+                    <strong>生产日期</strong>{date}
+				</li>
+                <li>
+                    <strong>缺陷总数</strong>{errcount}
+				</li>
+                <li>
+                    <strong>未检数</strong>{nocheck}
+				</li>
+            </ul>
+            <a href="#" target="_blank" class="cbp-l-project-details-visit btn red uppercase">实废图像</a>
+        </div>
+    </div>
+    <div class="cbp-l-project-container">
+        <div class="cbp-l-project-related">
+					<div class="cbp-l-project-desc-title">
+							<span>相关产品</span> <small>{machine} 当天生产的其它产品</small>
+					</div>			
+					<div class="row">
+						{relate}
+					</div>            
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+</div>
