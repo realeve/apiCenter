@@ -1,1 +1,0 @@
-a:3:{s:4:"time";i:1496151688;s:3:"ttl";i:600;s:4:"data";s:213:"{"rows": 0,"cols": 5,"header":[{"title":"FullName"},{"title":"DptID"},{"title":"DepartMentName"},{"title":"Phone"},{"title":"Email"}],"data":[],"title":"用户信息读取","source":"数据来源:API设置管理"}";}
