@@ -86,7 +86,7 @@ var handleAvatar = function() {
     });
 
     function updateAvatarStatus() {
-      var strUrl = getRootPath() + "/DataInterface/update";
+      var strUrl = getRootPath() + "/api/update";
       var iData = {
         tbl: TBL.USR,
         id: $('.username').data('uid'),
@@ -216,14 +216,14 @@ var handleBasicInfo = function() {
 
   var loadDepartmentInfo = function() {
     //SELECT a.DptID, a.DepartMentName FROM dbo.tblDepartMent AS a
-    var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=3&M=3";
+    var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=3&M=3";
     var Data = ReadData(str);
     InitSelect("department", Data);
   }();
 
   function loadUserBasicInfo() {
     //SELECT a.FullName, b.DepartMentName, b.DptID,a.Phone, a.Email FROM dbo.tblUser AS a INNER JOIN dbo.tblDepartMent AS b ON b.DptID = a.DepartMent where username=?
-    var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=2&M=3&u=" + $('.username').text().trim();
+    var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=2&M=3&u=" + $('.username').text().trim();
     var Data = ReadData(str);
     var userInfo = Data.data[0];
     $('.profile-usertitle-name').text(userInfo[0]);
@@ -239,7 +239,7 @@ var handleBasicInfo = function() {
   });
 
   $('[name="saveUserInfo"]').on('click', function() {
-    var strUrl = getRootPath() + "/DataInterface/update";
+    var strUrl = getRootPath() + "/api/update";
     var iData = getFormData('userInfo');
     iData.tbl = TBL.USR;
     iData.utf2gbk = ['FullName'];
@@ -326,7 +326,7 @@ var handleUserPassword = function(psw) {
     //PSW Validate:
     //SELECT a.ID FROM dbo.tblUser AS a where a.ID = ? and UserPassword=?
 
-    var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=4&M=3&uid=" + $('.username').data('uid') + "&psw=" + psw;
+    var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=4&M=3&uid=" + $('.username').data('uid') + "&psw=" + psw;
     var Data = ReadData(str);
     return Data.rows;
   }
@@ -337,7 +337,7 @@ var handleUserPassword = function(psw) {
     var iData = getFormData('userPsw');
     var updateData = {};
     $.ajax({
-      url: getRootPath() + "/DataInterface/md5?oldPsw=" + iData.oldPsw + "&newPsw=" + iData.newPsw,
+      url: getRootPath() + "/api/md5?oldPsw=" + iData.oldPsw + "&newPsw=" + iData.newPsw,
       async: false,
       success: function(data) {
         var obj = $.parseJSON(data);

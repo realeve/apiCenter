@@ -210,7 +210,7 @@ var Login = function() {
   function loadDptList() {
     //SELECT a.DptID, a.DepartMentName FROM dbo.tblDepartMent AS a
     //缓存10天
-    var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=163&M=3&cache=14400";
+    var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=163&M=3&cache=14400";
     var Data = ReadData(str);
     InitSelect("department", Data);
     SetSelectVal("department", 0);

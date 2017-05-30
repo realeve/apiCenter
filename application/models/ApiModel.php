@@ -1,5 +1,5 @@
 <?php
-class DataInterfaceModel extends CI_Model
+class ApiModel extends CI_Model
 {
     const PRE_STR = 'QCCenter'; //字符前缀
 
@@ -12,7 +12,7 @@ class DataInterfaceModel extends CI_Model
     const TBL_DPMT                  = 'tblDepartMent'; //21 用户所在部门/分组
       
     const TBL_DB                    = 'tblDataBaseInfo'; //29 数据库列表
-    const TBL_API                   = 'tblDataInterface'; //30 API列表
+    const TBL_API                   = 'tblApi'; //30 API列表
     const TBL_SELECT                = 'tblSettings_Select_List'; //31 下拉框列表
    
     const TBL_SETTINGS_MENULIST     = 'tbl_menu_list'; //33 菜单列表
@@ -86,7 +86,7 @@ class DataInterfaceModel extends CI_Model
         if (!isset($this->LOGINDB['sqlsvr'])) {
             $this->LOGINDB['sqlsvr'] = $this->load->database('sqlsvr', true);
         }
-        $StrSQL    = "SELECT ISNULL(MAX(ApiID),0)+1 as NewID  FROM  tblDataInterface  where AuthorName=?";
+        $StrSQL    = "SELECT ISNULL(MAX(ApiID),0)+1 as NewID  FROM  tblApi  where AuthorName=?";
         $query     = $this->LOGINDB['sqlsvr']->query($StrSQL, array($UserName));
         $strJson   = $query->result_json();
         $strReturn = json_decode($strJson)->data[0]->NewID;
@@ -110,7 +110,7 @@ class DataInterfaceModel extends CI_Model
         //$data['strSQL'] = $this->TransToGBK($data['strSQL']);
         $data['strSQL'] = base64_encode($data['strSQL']);
 
-        $this->LOGINDB['sqlsvr']->insert('tblDataInterface', $data);
+        $this->LOGINDB['sqlsvr']->insert('tblApi', $data);
 
         $Logout['ID'] = $this->LOGINDB['sqlsvr']->insert_id();
 
@@ -147,7 +147,7 @@ class DataInterfaceModel extends CI_Model
                 $this->LOGINDB['sqlsvr'] = $this->load->database('sqlsvr', true);
             }
             //处理数据
-            $SQLStr = "SELECT a.ApiID,a.ApiName,a.AuthorName,a.strSQL,a.Params,a.DBID,a.URL,b.DBName from tblDataInterface a INNER JOIN tblDataBaseInfo b on a.DBID=B.DBID WHERE Token = ? and ApiID=" . $data['ID'];
+            $SQLStr = "SELECT a.ApiID,a.ApiName,a.AuthorName,a.strSQL,a.Params,a.DBID,a.URL,b.DBName from tblApi a INNER JOIN tblDataBaseInfo b on a.DBID=B.DBID WHERE Token = ? and ApiID=" . $data['ID'];
 
             $query = $this->LOGINDB['sqlsvr']->query($SQLStr, array($data['Token']));
 
@@ -358,12 +358,12 @@ class DataInterfaceModel extends CI_Model
             $this->LOGINDB['sqlsvr'] = $this->load->database('sqlsvr', true);
         }
         //先获取当前用户ID
-        $SQLStr = "SELECT ID,strSQL from tblDataInterface where ID=116";
+        $SQLStr = "SELECT ID,strSQL from tblApi where ID=116";
         $query  = $this->LOGINDB['sqlsvr']->query($SQLStr);
         foreach ($query->result() as $row) {
             /*$data['strSQL'] = base64_decode($row->strSQL);
             $where = '[id] = '.$row->ID;
-            $LOGINDB->update('tblDataInterface', $data,$where);*/
+            $LOGINDB->update('tblApi', $data,$where);*/
             print_r(base64_decode($row->strSQL) . "<br>");
         }
         //$LOGINDB->close();//关闭连接

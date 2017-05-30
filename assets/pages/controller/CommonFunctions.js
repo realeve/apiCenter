@@ -35,7 +35,7 @@
     "WORK_ERR_LIST": 27, //'tblWorkErrDesc', //27  工作日志_故障类型
     "MICRO_BLOG": 28, //'tblMicroBlog_Record', //28  个人记事本
     "DB": 29, //'tblDataBaseInfo', //29  数据库列表
-    "API": 30, //'tblDataInterface', //30  API列表
+    "API": 30, //'tblapi', //30  API列表
     "SELECT": 31, //'tblSettings_Select_List', //31  下拉框列表
     "WORK_LOG_OPR": 32, //'tblWorklog_Operator', //32  机检日志人员名单
     "SETTINGS_MENULIST": 33, //菜单列表
@@ -727,7 +727,7 @@
 
     // 初始化品种信息
     // 印钞产品列表 SELECT ProductID,ProductName FROM ProductData ORDER BY 1
-    var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=35&M=3&t=1&cache=14400";
+    var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=35&M=3&t=1&cache=14400";
 
     $.ajax({
         url: str,
@@ -824,7 +824,7 @@
 
       if (avatarUrl.indexOf(location.protocol + '//') != -1) {
         $.ajax({
-            url: getRootPath(1) + '/datainterface/base64?src=' + avatarUrl,
+            url: getRootPath(1) + '/api/base64?src=' + avatarUrl,
           })
           .done(function(avatar) {
             setAvatar(avatar);

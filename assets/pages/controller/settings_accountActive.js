@@ -1,6 +1,6 @@
 var accountActive = function() {
   function initDOM() {
-    var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=5&M=0";
+    var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=5&M=0";
     var Data = ReadData(str);
     var strTr = '';
     if (Data.rows > 0) {
@@ -16,7 +16,7 @@ var accountActive = function() {
   $('table[name="accountList"] tbody').on('click', 'a', function() {
     var id = $(this).data('id');
     var obj = $(this);
-    var strUrl = getRootPath() + "/DataInterface/update";
+    var strUrl = getRootPath() + "/api/update";
     $.ajax({
       type: 'POST',
       async: false,
@@ -43,7 +43,7 @@ var accountActive = function() {
 
   var loadUserBasicInfo = function() {
     //SELECT a.FullName, b.DepartMentName, a.Phone, a.Email FROM dbo.tblUser AS a INNER JOIN dbo.tblDepartMent AS b ON b.DptID = a.DepartMent where username=?
-    var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=2&M=3&u=" + $('.username').text().trim();
+    var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=2&M=3&u=" + $('.username').text().trim();
     var Data = ReadData(str);
     var userInfo = Data.data[0];
     $('.profile-usertitle-name').text(userInfo[0]);

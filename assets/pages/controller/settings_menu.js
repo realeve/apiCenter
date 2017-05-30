@@ -275,7 +275,7 @@ var customizeMenu = function() {
             $('#menuPreviewList_output').parents('.portlet').removeClass('hide');
           }
 
-          var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=6&M=0&uid=" + uid;
+          var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=6&M=0&uid=" + uid;
           var Data = ReadData(str);
           InitSettingSelect("menu_list", Data);
 
@@ -307,7 +307,7 @@ var customizeMenu = function() {
         });
 
         function addMenu() {
-          var strUrl = getRootPath() + "/DataInterface/insert";
+          var strUrl = getRootPath() + "/api/insert";
           var iData = {
             "tbl": TBL.SETTINGS_MENULIST,
             "name": $('#newMenu [name="menuName"]').val(),
@@ -344,7 +344,7 @@ var customizeMenu = function() {
         }
 
         function editMenu() {
-          var strUrl = getRootPath() + "/DataInterface/update";
+          var strUrl = getRootPath() + "/api/update";
           var iData = {
             "tbl": TBL.SETTINGS_MENULIST,
             "name": $('#newMenu [name="menuName"]').val(),
@@ -396,7 +396,7 @@ var customizeMenu = function() {
         }
 
         $('#menuList [name="share"]').change(function() {
-          var strUrl = getRootPath() + "/DataInterface/update";
+          var strUrl = getRootPath() + "/api/update";
           var objCheck = $(this);
           var objList = $('select[name="menu_list"]');
           var iData = {
@@ -430,7 +430,7 @@ var customizeMenu = function() {
 
         //删除菜单项
         $('body').on('confirmed.bs.confirmation', '#menuOper [name="del"]', function() {
-          var strUrl = getRootPath() + "/DataInterface/update";
+          var strUrl = getRootPath() + "/api/update";
           if (!menuEditValidata()) {
             return;
           }
@@ -469,7 +469,7 @@ var customizeMenu = function() {
           //saveMenuHtml();
 
           //激活菜单
-          var strUrl = getRootPath() + "/DataInterface/update";
+          var strUrl = getRootPath() + "/api/update";
           var iData = {
             "tbl": TBL.USR,
             "id": uid,
@@ -486,7 +486,7 @@ var customizeMenu = function() {
         });
 
         function saveMenuHtml() {
-          var strUrl = getRootPath() + "/DataInterface/update";
+          var strUrl = getRootPath() + "/api/update";
           if (!menuEditValidata()) {
             bsTips('菜单信息未保存', 1);
             return;
@@ -568,7 +568,7 @@ var customizeMenu = function() {
         //载入所有菜单项
 
         function loadAllMenu() {
-          var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=7&M=0&uid=" + uid + '&cache=1';
+          var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=7&M=0&uid=" + uid + '&cache=1';
           menuDetailObj = ReadData(str);
           var menuEditObj = $('select[name="menuDetail"]');
           $('#menuPreviewList').append('<ol class="dd-list"></ol>');
@@ -851,7 +851,7 @@ var customizeMenu = function() {
             iData.url = "javascript:;"
           }
           $.ajax({
-            url: getRootPath() + "/DataInterface/insert",
+            url: getRootPath() + "/api/insert",
             type: 'POST',
             data: iData
           }).done(function(data) {
@@ -897,7 +897,7 @@ var customizeMenu = function() {
             iData.url = "javascript:;"
           }
           $.ajax({
-            url: getRootPath() + "/DataInterface/update",
+            url: getRootPath() + "/api/update",
             type: 'POST',
             data: iData
           }).done(function(data) {
@@ -965,7 +965,7 @@ var customizeMenu = function() {
           iData.id = $('select[name="menuDetail"]').val();
           iData.hide = 1;
           $.ajax({
-            url: getRootPath() + "/DataInterface/update",
+            url: getRootPath() + "/api/update",
             type: 'POST',
             data: iData
           }).done(function(data) {

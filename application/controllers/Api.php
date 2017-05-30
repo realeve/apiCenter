@@ -5,7 +5,7 @@
 }
 
 
-class DataInterface extends CI_Controller
+class Api extends CI_Controller
 {
 
     const PRE_STR = 'QCCenter';
@@ -27,7 +27,7 @@ class DataInterface extends CI_Controller
         'url',
         ));
 
-        $this->load->model('DataInterfaceModel');
+        $this->load->model('ApiModel');
 
         //开启缓存
         //$this->output->cache(60*24);
@@ -47,17 +47,17 @@ class DataInterface extends CI_Controller
 
                 $logindata['CreateID'] = $this->GetNewApiID();
 
-                $logindata['token']    = sha1(self::PRE_STR . $this->DataInterfaceModel->TransToGBK($logindata['username']));
+                $logindata['token']    = sha1(self::PRE_STR . $this->ApiModel->TransToGBK($logindata['username']));
 
-                $this->load->view('templates/header/header_DataInterface', $logindata);
+                $this->load->view('templates/header/header_Api', $logindata);
 
                 $this->load->view('templates/header/topmenu');
 
                 $this->load->view('templates/sidebar');
 
-                $this->load->view('DataInterface', $logindata);
+                $this->load->view('Api', $logindata);
 
-                $this->load->view('templates/footer/footer_DataInterface');
+                $this->load->view('templates/footer/footer_Api');
 
             }
 
@@ -83,9 +83,9 @@ class DataInterface extends CI_Controller
 
         $this->load->library('session');
 
-        $this->load->model('DataInterfaceModel');
+        $this->load->model('ApiModel');
 
-        return $this->DataInterfaceModel->GetNewApiID($this->session->userdata('username'));
+        return $this->ApiModel->GetNewApiID($this->session->userdata('username'));
 
     }
 
@@ -96,7 +96,7 @@ class DataInterface extends CI_Controller
 
         $this->load->library('session');
 
-        $this->load->model('DataInterfaceModel');
+        $this->load->model('ApiModel');
 
         $APIData = $this->input->post(null);
 
@@ -114,7 +114,7 @@ class DataInterface extends CI_Controller
 
         $APIData['AuthorName'] = $this->session->userdata('username');
 
-        $ReturnData            = $this->DataInterfaceModel->SaveAPI($APIData);
+        $ReturnData            = $this->ApiModel->SaveAPI($APIData);
 
         $this->output->set_output(json_encode($ReturnData));
 
@@ -192,11 +192,11 @@ class DataInterface extends CI_Controller
                 unset($APIData['cache']);
 
 
-                $this->load->model('DataInterfaceModel');
+                $this->load->model('ApiModel');
 
 
                 //缓存未命中，读取原始数据
-                $Data = $this->DataInterfaceModel->Api($APIData);
+                $Data = $this->ApiModel->Api($APIData);
 
                 //echo '未取得缓存...<br>';
 
@@ -224,9 +224,9 @@ class DataInterface extends CI_Controller
                 //无需缓存
                 //echo '实时读取';
 
-                $this->load->model('DataInterfaceModel');
+                $this->load->model('ApiModel');
 
-                $Data = $this->DataInterfaceModel->Api($APIData);
+                $Data = $this->ApiModel->Api($APIData);
 
             }
 
@@ -256,7 +256,7 @@ class DataInterface extends CI_Controller
 
         public function insert()
         {
-            $this->load->model('DataInterfaceModel');
+            $this->load->model('ApiModel');
             $data = $this->input->post(null);
 
             if (!isset($data['tbl']) && !isset($data['tblname'])) {
@@ -277,7 +277,7 @@ class DataInterface extends CI_Controller
 	            }
             }
 
-            $insertID = $this->DataInterfaceModel->insert($data);
+            $insertID = $this->ApiModel->insert($data);
             $returnData['id'] = $insertID;
 
             if ($insertID) {
@@ -319,7 +319,7 @@ class DataInterface extends CI_Controller
 
         {
 
-            $this->load->model('DataInterfaceModel');
+            $this->load->model('ApiModel');
 
             $data = $this->input->post(null);
 
@@ -337,7 +337,7 @@ class DataInterface extends CI_Controller
 	            }
             }
 
-            if ($this->DataInterfaceModel->delete($data)) {
+            if ($this->ApiModel->delete($data)) {
 
                 $returnData['message'] = '删除数据成功';
 
@@ -377,7 +377,7 @@ class DataInterface extends CI_Controller
 
         {
 
-            $this->load->model('DataInterfaceModel');
+            $this->load->model('ApiModel');
 
             $data = $this->input->post(null);
 
@@ -400,7 +400,7 @@ class DataInterface extends CI_Controller
             }
 
 
-            if ($this->DataInterfaceModel->update($data)) {
+            if ($this->ApiModel->update($data)) {
 
                 $returnData['message'] = '更新数据成功';
 
@@ -444,9 +444,9 @@ class DataInterface extends CI_Controller
 
         {
 
-            $this->load->model('DataInterfaceModel');
+            $this->load->model('ApiModel');
 
-            $this->DataInterfaceModel->convert2Base64();
+            $this->ApiModel->convert2Base64();
 
         }
 

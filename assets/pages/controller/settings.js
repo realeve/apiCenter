@@ -230,7 +230,7 @@ var FormWizard = function() {
             $('#form_wizard_1').find('.button-previous').hide();
             $('#form_wizard_1 .button-submit').click(function() {
                 //为兼容SQL2000此处不采用批量插入的方式，单条插入信息
-                var strUrl = getRootPath() + "/DataInterface/insert";
+                var strUrl = getRootPath() + "/api/insert";
                 var obj, dataID, dataName, iData = {};
                 var iLen = $('div[name="addList"]').length;
                 if ($("select[name='select_cat']").val() === '0') {
@@ -282,7 +282,7 @@ var FormWizard = function() {
 
 var handleSelect2 = function() {
     function initDOM() {
-        var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=34&M=3";
+        var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=34&M=3";
         var Data = ReadData(str);
         InitSelect("select_cat", Data);
         var i = 1;

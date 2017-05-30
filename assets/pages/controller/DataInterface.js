@@ -11,7 +11,7 @@ var isInited = false;
 //初始化接口列表
 var apiList = function() {
   var username = $('.top-menu .username').text().trim();
-  var strUrl = getRootPath(1) + '/DataInterface/Api?ID=0' + '&author=' + username + '&cache=1440';
+  var strUrl = getRootPath(1) + '/api/Api?ID=0' + '&author=' + username + '&cache=1440';
   var initData;
 
   var table = $('#apiList');
@@ -77,7 +77,7 @@ var apiList = function() {
       oTable.fnUpdate('<a class="delete" href="javascript:;" data-apiid="' + jqInputs[1].value + '" data-sn="' + ID + '">删除</a>', nRow, 7, false);
       oTable.fnDraw();
 
-      var url = getRootPath() + '/DataInterface/update';
+      var url = getRootPath() + '/api/update';
       $.post(url, data, function(data) {
         var obj = $.parseJSON(data);
         infoTips(obj.message, obj.type);
@@ -133,7 +133,7 @@ var apiList = function() {
             label: "删除",
             className: "green",
             callback: function() {
-              var url = getRootPath() + '/DataInterface/delete';
+              var url = getRootPath() + '/api/delete';
               $.post(url, {
                 id: obj.data('sn'),
                 tbl: TBL.API,
@@ -144,7 +144,7 @@ var apiList = function() {
                 infoTips("数据成功删除", 1);
                 var userName = $('.top-menu .username').text().trim();
                 //更新数据添加接口状态信息
-                var nID = ReadData(getRootPath() + '/DataInterface/Api?Token' + config.TOKEN + '&ID=29&M=3&author=' + userName);
+                var nID = ReadData(getRootPath() + '/api/Api?Token' + config.TOKEN + '&ID=29&M=3&author=' + userName);
                 $('#ApiID').text(nID.data[0]);
               });
             }
@@ -519,7 +519,7 @@ $(this).html('<pre>' + value + '</pre>');
       });
 
       $("#SaveAPI,#saves").on('click', function() {
-        var strUrl = getRootUrl('DataInterface') + "SaveAPI";
+        var strUrl = getRootUrl('api') + "SaveAPI";
         var APIData = $('#user .editable').editable('getValue');
         if (APIData.ApiName === '' || APIData.strSQL === '' || APIData.params === '') {
           infoTips("接口名、查询语句以及接口参数不允许为空,请检查后重新提交", 1);
@@ -577,7 +577,7 @@ $(this).html('<pre>' + value + '</pre>');
 
       $('#clrCache').on('click', function() {
         $.ajax({
-          url: getRootPath(1) + '/DataInterface/clearCache'
+          url: getRootPath(1) + '/api/clearCache'
         });
 
       });

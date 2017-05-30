@@ -318,8 +318,8 @@
 
 				//SELECT  '今年' as 月份, a.ProductTypeName as 品种, avg(a.OpenNum) as 开包量 FROM dbo.ManualVerifyData AS a where a.MahouID>0 and a.OpenNum>0 and CONVERT(varchar,ProduceTime,112) between ? and ? group by a.ProductTypeName,CONVERT(varchar(6),ProduceTime,112) union ALL SELECT  '去年同期' as 月份, a.ProductTypeName as 品种, avg(a.OpenNum) as 开包量 FROM dbo.ManualVerifyData AS a where a.MahouID>0 and a.OpenNum>0 and CONVERT(varchar,ProduceTime,112) between ? and ? group by a.ProductTypeName,CONVERT(varchar(6),ProduceTime,112)
 				var url = [
-					getRootPath() + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=222&M=3&tstart=" + date.start + "&tend=" + date.end + "&tstart2=" + lastYear.start + "&tend2=" + lastYear.end + "&cache=" + config.cache,
-					getRootPath() + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=181&M=3&tstart=" + date.start + "&tend=" + date.end + "&tstart2=" + date.start + "&tend2=" + date.end + "&cache=" + config.cache
+					getRootPath() + "/api/Api?Token=" + config.TOKEN + "&ID=222&M=3&tstart=" + date.start + "&tend=" + date.end + "&tstart2=" + lastYear.start + "&tend2=" + lastYear.end + "&cache=" + config.cache,
+					getRootPath() + "/api/Api?Token=" + config.TOKEN + "&ID=181&M=3&tstart=" + date.start + "&tend=" + date.end + "&tstart2=" + date.start + "&tend2=" + date.end + "&cache=" + config.cache
 				];
 
 				$.ajax({
@@ -408,7 +408,7 @@
 		var handleDashBoardNums = (function() {
 			//api:
 			//SELECT a.当月质量, a.上传大万数, b.实时质量, a.异常产品 FROM ( SELECT SUM ( CASE WHEN 好品率 < 70 THEN 1 ELSE 0 END ) AS 当月质量, COUNT (*) 上传大万数, SUM ( CASE WHEN ( 正面1缺陷数 = 0 OR 正2 = 0 OR 正3 = 0 OR 正4 = 0 OR 正5 = 0 OR 背精1缺陷数 = 0 OR 精2 = 0 OR 精3 = 0 OR 精4 = 0 ) THEN 1 ELSE 0 END ) AS 异常产品 FROM dbo.view_print_hecha WHERE 生产日期 / 100 = convert(varchar(6),GETDATE(),112) ) a, ( SELECT COUNT (*) AS 实时质量 FROM dbo.view_print_online_quality WHERE 好品率 < 80 AND CONVERT (VARCHAR, 上传时间, 112) = convert(varchar,GETDATE(),112) ) b
-			var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=168&M=3";
+			var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=168&M=3";
 			$.ajax({
 					url: str
 				})
@@ -446,7 +446,7 @@
 			var hisQuaHtml = [];
 
 			function loadHisQuaData(apiID, dontRender) {
-				var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=" + apiID + "&M=3&cache=" + config.cache;
+				var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=" + apiID + "&M=3&cache=" + config.cache;
 				var prodHtml = '';
 				$.ajax({
 						url: str
@@ -483,7 +483,7 @@
 		})();
 		//处理历史质量信息
 		var initQualityCharts = (function() {
-			var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=172&M=0&cache=" + config.cache;
+			var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=172&M=0&cache=" + config.cache;
 			$.ajax({
 					url: str
 				})
@@ -565,7 +565,7 @@
 		}
 
 		var loadOLInfo = (function() {
-			var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=173&M=3&cache=1440";
+			var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=173&M=3&cache=1440";
 			$.ajax({
 					url: str
 				})
@@ -605,7 +605,7 @@
 
 		var initNoteAnanyCharts = (function() {
 
-			var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=175&M=0&cache=" + config.cache;
+			var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=175&M=0&cache=" + config.cache;
 			$.ajax({
 					url: str
 				})
@@ -643,7 +643,7 @@
 			var machineData;
 
 			var getQualityByMachine = function(machineName) {
-				var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=174&M=3&machine=" + machineName + "&cache=" + config.cache;
+				var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=174&M=3&machine=" + machineName + "&cache=" + config.cache;
 				var Data = ReadData(str);
 				return getFlotSeries(Data.data, 1);
 			};
@@ -952,7 +952,7 @@
 
 			var initChart2 = function() {
 
-				var str = getRootPath(1) + "/DataInterface/Api?Token=" + config.TOKEN + "&ID=176&M=3";
+				var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=176&M=3";
 				var Data = ReadData(str);
 				var data = [];
 				Data.data.map(function(plotData) {
