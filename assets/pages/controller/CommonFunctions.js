@@ -727,7 +727,7 @@
 
     // 初始化品种信息
     // 印钞产品列表 SELECT ProductID,ProductName FROM ProductData ORDER BY 1
-    var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=35&M=3&t=1&cache=14400";
+    var str = getRootPath(1) + "/api/Api?Token=" + config.TOKEN + "&ID=10&M=3&t=1&cache=14400";
 
     $.ajax({
         url: str,

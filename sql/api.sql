@@ -1,7 +1,7 @@
 /*
 Navicat SQL Server Data Transfer
 
-Source Server         : MS SQLServer
+Source Server         : MS SQL
 Source Server Version : 105000
 Source Host           : localhost:1433
 Source Database       : api
@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 105000
 File Encoding         : 65001
 
-Date: 2017-05-30 21:52:07
+Date: 2017-05-31 08:51:12
 */
 
 
@@ -120,7 +120,7 @@ CREATE TABLE [dbo].[tblApi] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[tblApi]', RESEED, 9)
+DBCC CHECKIDENT(N'[dbo].[tblApi]', RESEED, 11)
 GO
 
 -- ----------------------------
@@ -137,7 +137,7 @@ INSERT INTO [dbo].[tblApi] ([ID], [ApiID], [ApiName], [AuthorName], [Token], [Ap
 													</li>
 													<li>
 														 TimeEnd:结束时间；</li>
-												</ol>', N'U0VMRUNUIGEuSUQgYXMgSUQsYS5BcGlJRCBhcyDluo/lj7csYS5BdXRob3JOYW1lIGFzIOaJgOacieiAhSxiLkRCTmFtZSBhcyDmlbDmja7lupMsYS5BcGlOYW1lIGFzIOaOpeWPo+WQjeensCxhLnN0clNxbCBhcyDmn6Xor6Lor63lj6UsYS5QYXJhbXMgYXMg5Y+C5pWw5YiX6KGoIGZyb20gdGJsRGF0YUludGVyZmFjZSBhIGlubmVyIGpvaW4gdGJsRGF0YUJhc2VJbmZvIGIgICBvbiBhLkRCSUQgPSBiLkRCSUQgIHdoZXJlIEFwaUlEPjAgYW5kIGF1dGhvcm5hbWU9PyBvcmRlciBieSAy', N'author', N'1', N'http://localhost/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=2&M=3', null)
+												</ol>', N'U0VMRUNUIGEuSUQgYXMgSUQsYS5BcGlJRCBhcyDluo/lj7csYS5BdXRob3JOYW1lIGFzIOaJgOacieiAhSxiLkRCTmFtZSBhcyDmlbDmja7lupMsYS5BcGlOYW1lIGFzIOaOpeWPo+WQjeensCxhLnN0clNxbCBhcyDmn6Xor6Lor63lj6UsYS5QYXJhbXMgYXMg5Y+C5pWw5YiX6KGoIGZyb20gdGJsQXBpIGEgaW5uZXIgam9pbiB0YmxEYXRhQmFzZUluZm8gYiAgIG9uIGEuREJJRCA9IGIuREJJRCAgd2hlcmUgQXBpSUQ+MCBhbmQgYXV0aG9ybmFtZT0/IG9yZGVyIGJ5IDI=', N'author', N'1', N'http://localhost/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=2&M=3', N'2016-05-16 13:52:00.000')
 GO
 GO
 INSERT INTO [dbo].[tblApi] ([ID], [ApiID], [ApiName], [AuthorName], [Token], [ApiDesc], [strSQL], [Params], [DBID], [URL], [CreateDate]) VALUES (N'2', N'1', N'选择列表自定义设置                               ', N'develop                                 ', N'79d84495ca776ccb523114a2120e273ca80b315b                                                            ', N'<p>[功能说明]</p>
@@ -153,7 +153,7 @@ INSERT INTO [dbo].[tblApi] ([ID], [ApiID], [ApiName], [AuthorName], [Token], [Ap
 													<li>
 														 M:0.默认所有数据;1.输出列名;<br>2.预览模式;3.DataTables数据格式；
 													</li>
-												</ol>', N'c2VsZWN0IFZhbHVlLE5hbWUsYXBpVVJMLHRibElEIGZyb20gdGJsU2V0dGluZ3NfU2VsZWN0X0xpc3Q=', N'', N'1', N'http://localhost/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=34&M=3', null)
+												</ol>', N'c2VsZWN0IFZhbHVlLE5hbWUsYXBpVVJMLHRibElEIGZyb20gdGJsU2V0dGluZ3NfU2VsZWN0X0xpc3Q=', N'', N'1', N'http://localhost/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=34&M=3', N'2016-05-16 13:52:00.000')
 GO
 GO
 INSERT INTO [dbo].[tblApi] ([ID], [ApiID], [ApiName], [AuthorName], [Token], [ApiDesc], [strSQL], [Params], [DBID], [URL], [CreateDate]) VALUES (N'3', N'5', N'未激活帐户列表                                 ', N'develop                                 ', N'79d84495ca776ccb523114a2120e273ca80b315b                                                            ', N'<p>[功能说明]</p>
@@ -218,10 +218,16 @@ GO
 INSERT INTO [dbo].[tblApi] ([ID], [ApiID], [ApiName], [AuthorName], [Token], [ApiDesc], [strSQL], [Params], [DBID], [URL], [CreateDate]) VALUES (N'7', N'2', N'用户信息读取                                  ', N'develop                                 ', N'79d84495ca776ccb523114a2120e273ca80b315b                                                            ', N'[功能说明]<p style="text-indent:2em;">本接口主要用于 <i>XX</i> 信息的查询.</p>[主要参数]<ul><li>TimeStart:开始时间；</li><li> TimeEnd:开始时间；</li><li> Cols:1/0,默认为空，设为1时返回查询语句的列用于表格初始化等操作；</li></ul>', N'U0VMRUNUIGEuRnVsbE5hbWUsYi5EcHRJRCxiLkRlcGFydE1lbnROYW1lLGEuUGhvbmUsYS5FbWFpbCBGUk9NIGRiby50YmxVc2VyIEFTIGEgSU5ORVIgSk9JTiBkYm8udGJsRGVwYXJ0TWVudCBBUyBiIE9OIGIuRHB0SUQgPSBhLkRlcGFydE1lbnQgd2hlcmUgdXNlcm5hbWU9Pw==', N'u', N'1', N'http://10.8.2.133:70/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=164&M=3', N'2016-05-16 13:52:00.000')
 GO
 GO
+INSERT INTO [dbo].[tblApi] ([ID], [ApiID], [ApiName], [AuthorName], [Token], [ApiDesc], [strSQL], [Params], [DBID], [URL], [CreateDate]) VALUES (N'10', N'9', N'部门列表                                    ', N'develop                                 ', N'79d84495ca776ccb523114a2120e273ca80b315b                                                            ', N'[功能说明]<p style="text-indent:2em;">本接口主要用于 <i>XX</i> 信息的查询.</p>[主要参数]<ul><li>TimeStart:开始时间；</li><li> TimeEnd:开始时间；</li><li> Cols:1/0,默认为空，设为1时返回查询语句的列用于表格初始化等操作；</li></ul>', N'U0VMRUNUIGEuRHB0SUQsYS5EZXBhcnRNZW50TmFtZSBGUk9NIGRiby50YmxEZXBhcnRNZW50IEFTIGEgT3JkZXIgYnkgZHB0SUQ=', N' ', N'1', N'http://10.8.2.133:70/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=164&M=3', N'2016-05-16 13:52:00.000')
+GO
+GO
 INSERT INTO [dbo].[tblApi] ([ID], [ApiID], [ApiName], [AuthorName], [Token], [ApiDesc], [strSQL], [Params], [DBID], [URL], [CreateDate]) VALUES (N'8', N'4', N'密码校验                                    ', N'develop                                 ', N'79d84495ca776ccb523114a2120e273ca80b315b                                                            ', N'[功能说明]<p style="text-indent:2em;">本接口主要用于 <i>XX</i> 信息的查询.</p>[主要参数]<ul><li>TimeStart:开始时间；</li><li> TimeEnd:开始时间；</li><li> Cols:1/0,默认为空，设为1时返回查询语句的列用于表格初始化等操作；</li></ul>', N'U0VMRUNUIGEuSUQgRlJPTSBkYm8udGJsVXNlciBBUyBhIHdoZXJlIGEuSUQgPSA/IGFuZCBVc2VyUGFzc3dvcmQ9Pw==', N'uid,psw', N'1', N'http://10.8.2.133:70/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=164&M=3', N'2016-05-16 13:52:00.000')
 GO
 GO
 INSERT INTO [dbo].[tblApi] ([ID], [ApiID], [ApiName], [AuthorName], [Token], [ApiDesc], [strSQL], [Params], [DBID], [URL], [CreateDate]) VALUES (N'9', N'8', N'产品列表                                    ', N'develop                                 ', N'79d84495ca776ccb523114a2120e273ca80b315b                                                            ', N'[功能说明]<p style="text-indent:2em;">本接口主要用于 <i>XX</i> 信息的查询.</p>[主要参数]<ul><li>TimeStart:开始时间；</li><li> TimeEnd:开始时间；</li><li> Cols:1/0,默认为空，设为1时返回查询语句的列用于表格初始化等操作；</li></ul>', N'U0VMRUNUIFByb2R1Y3RJRCxQcm9kdWN0TmFtZSBGUk9NIFByb2R1Y3REYXRhIE9SREVSIEJZIDE=', N' ', N'1', N'http://10.8.2.133:70/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=164&M=3', N'2016-05-16 13:52:00.000')
+GO
+GO
+INSERT INTO [dbo].[tblApi] ([ID], [ApiID], [ApiName], [AuthorName], [Token], [ApiDesc], [strSQL], [Params], [DBID], [URL], [CreateDate]) VALUES (N'11', N'10', N'产品列表                                    ', N'develop                                 ', N'79d84495ca776ccb523114a2120e273ca80b315b                                                            ', N'[功能说明]<p style="text-indent:2em;">本接口主要用于 <i>XX</i> 信息的查询.</p>[主要参数]<ul><li>TimeStart:开始时间；</li><li> TimeEnd:开始时间；</li><li> Cols:1/0,默认为空，设为1时返回查询语句的列用于表格初始化等操作；</li></ul>', N'U0VMRUNUIFByb2R1Y3RJRCxQcm9kdWN0TmFtZSBGUk9NIFByb2R1Y3REYXRhIE9SREVSIEJZIDE=', null, N'0', N'http://10.8.2.133:70/DataInterface/Api?Token=79d84495ca776ccb523114a2120e273ca80b315b&ID=164&M=3', N'2016-05-16 13:52:00.000')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[tblApi] OFF
@@ -285,15 +291,6 @@ GO
 INSERT INTO [dbo].[tblDepartMent] ([ID], [DptID], [DepartMentName], [SortName]) VALUES (N'2', N'2', N'生产管理部          ', N'SC        ')
 GO
 GO
-INSERT INTO [dbo].[tblDepartMent] ([ID], [DptID], [DepartMentName], [SortName]) VALUES (N'3', N'3', N'企管规划部          ', N'QG        ')
-GO
-GO
-INSERT INTO [dbo].[tblDepartMent] ([ID], [DptID], [DepartMentName], [SortName]) VALUES (N'4', N'4', N'钞纸制作部          ', N'CZ        ')
-GO
-GO
-INSERT INTO [dbo].[tblDepartMent] ([ID], [DptID], [DepartMentName], [SortName]) VALUES (N'5', N'5', N'钞纸成品制作部      ', N'CP        ')
-GO
-GO
 INSERT INTO [dbo].[tblDepartMent] ([ID], [DptID], [DepartMentName], [SortName]) VALUES (N'6', N'6', N'胶凹制作部          ', N'JW        ')
 GO
 GO
@@ -304,12 +301,6 @@ INSERT INTO [dbo].[tblDepartMent] ([ID], [DptID], [DepartMentName], [SortName]) 
 GO
 GO
 INSERT INTO [dbo].[tblDepartMent] ([ID], [DptID], [DepartMentName], [SortName]) VALUES (N'9', N'9', N'数字管理部          ', N'SG        ')
-GO
-GO
-INSERT INTO [dbo].[tblDepartMent] ([ID], [DptID], [DepartMentName], [SortName]) VALUES (N'10', N'10', N'经理部              ', N'JLB       ')
-GO
-GO
-INSERT INTO [dbo].[tblDepartMent] ([ID], [DptID], [DepartMentName], [SortName]) VALUES (N'11', N'11', N'其它                ', N'QT        ')
 GO
 GO
 INSERT INTO [dbo].[tblDepartMent] ([ID], [DptID], [DepartMentName], [SortName]) VALUES (N'12', N'0', N'所在部门            ', null)
