@@ -250,7 +250,6 @@ class Api extends CI_Controller
             //->set_content_type('application/json', 'utf-8')
             //->set_output(json_encode($Data));
             ->set_output($Data);
-
         }
 
 
@@ -295,10 +294,7 @@ class Api extends CI_Controller
 
                 $returnData = $data['callback'] . "(" . json_encode($returnData) . ")";
 
-                $this->output->set_header('Access-Control-Allow-Origin:*')
-                ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
-                ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
-                ->set_output($returnData);
+                $this->output->set_output($returnData);
                 return;
             }
             $this->output->set_header('Access-Control-Allow-Origin:*')
@@ -354,18 +350,14 @@ class Api extends CI_Controller
 
                 $returnData = $data['callback'] . "(" . json_encode($returnData) . ")";
 
-                $this->output->set_header('Access-Control-Allow-Origin:*')
-                ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
-                ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
-                ->set_content_type('application/json', 'utf-8')
-                ->set_output($returnData);
+                $this->output->set_output($returnData);
 
                 return;
 
             }
 
             $this->output->set_header('Access-Control-Allow-Origin:*')
-            ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
+            ->set_header('Access-Control-Allow-Methods:GET,POST,PUT,OPTIONS')
             ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
             //->set_content_type('application/json', 'utf-8')
             ->set_output(json_encode($returnData));
@@ -421,17 +413,13 @@ class Api extends CI_Controller
 
                 $returnData = $data['callback'] . "(" . json_encode($returnData) . ")";
 
-                $this->output->set_header('Access-Control-Allow-Origin:*')
-                ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
-                ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
-                //->set_content_type('application/json', 'utf-8')
-                ->set_output($returnData);
+                $this->output->set_output($returnData);
 
                 return;
 
             }
 
-            $this->output->set_header('Access-Control-Allow-Origin:*')
+            $this->output->set_header('Access-Control-Allow-Origin:http://localhost:8080')
             ->set_header('Access-Control-Allow-Methods:GET,POST,PUT')
             ->set_header('Access-Control-Allow-Headers: x-requested-with,content-type')
             //->set_content_type('application/json', 'utf-8')

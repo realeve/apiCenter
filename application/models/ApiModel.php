@@ -19,7 +19,7 @@ class ApiModel extends CI_Model
     const TBL_SETTINGS_MENUDETAIL   = 'tbl_menu_detail'; //34 菜单子项
 
     //全局变量
-    public $DBLIST = array(0 => 'userdata', 1 => 'sqlsvr');
+    public $DBLIST = array(0 => 'userdata', 1 => 'sqlsvr', 2 => 'mysql');
     public $LOGINDB;
 
     public function __construct()
@@ -372,33 +372,44 @@ class ApiModel extends CI_Model
 
     public function insert($data)
     {
-        if ($data['tbl'] >= 20) {
-            $LOGINDB = $this->load->database('sqlsvr', true);
-        } else {
-            $LOGINDB = $this->LOGINDB['userdata'];
-        }
-
+        if(isset($data['dbid'])){
+			$LOGINDB = $this->load->database($this->DBLIST[$data['dbid']],true);
+		}else{
+			if ($data['tbl'] >= 20) {
+				$LOGINDB = $this->load->database('sqlsvr', true);
+			} else {
+				$LOGINDB = $this->LOGINDB['userdata'];
+			}
+		}
+		
         foreach ($data['utf2gbk'] as $str) {
             $data[$str] = $this->TransToGBK($data[$str]);
         }
         unset($data['utf2gbk']);
         $tblName = $this->getDBName($data);
         unset($data['tbl']);
+        unset($data['dbid']);
         if (isset($data['tblname'])) {
             unset($data['tblname']);
             unset($data['callback']);
         }
+		// print_r($data);
         $LOGINDB->insert($tblName, $data);
         return $LOGINDB->insert_id();
     }
 
     public function delete($data)
-    {
-        if ($data['tbl'] >= 20) {
-            $LOGINDB = $this->load->database('sqlsvr', true);
-        } else {
-            $LOGINDB = $this->LOGINDB['userdata'];
-        }
+    {	
+		if(isset($data['dbid'])){
+			$LOGINDB = $this->load->database($this->DBLIST[$data['dbid']],true);
+		}else{
+			if ($data['tbl'] >= 20) {
+				$LOGINDB = $this->load->database('sqlsvr', true);
+			} else {
+				$LOGINDB = $this->LOGINDB['userdata'];
+			}
+		}
+        
         if(isset($data['mainid'])){
             $condition[$data['mainid']] = $data[$data['mainid']];
         }else{
@@ -423,11 +434,15 @@ class ApiModel extends CI_Model
 
     public function update($data)
     {
-        if ($data['tbl'] >= 20) {
-            $LOGINDB = $this->load->database('sqlsvr', true);
-        } else {
-            $LOGINDB = $this->LOGINDB['userdata'];
-        }
+        if(isset($data['dbid'])){
+			$LOGINDB = $this->load->database($this->DBLIST[$data['dbid']],true);
+		}else{
+			if ($data['tbl'] >= 20) {
+				$LOGINDB = $this->load->database('sqlsvr', true);
+			} else {
+				$LOGINDB = $this->LOGINDB['userdata'];
+			}
+		}
 
         if (isset($data['utf2gbk'])) {
             foreach ($data['utf2gbk'] as $str) {
@@ -453,6 +468,7 @@ class ApiModel extends CI_Model
 
         unset($data['tbl']);
         unset($data['id']);
+        unset($data['dbid']);
         unset($data['utf2gbk']);
         if (isset($data['tblname'])) {
             unset($data['tblname']);

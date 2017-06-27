@@ -80,31 +80,19 @@ $db['sqlsvr'] = array(
 	'char_set' => 'utf8',
 	'dbcollat' => 'utf8_general_ci',
 	'swap_pre' => '',
-	//'encrypt' => FALSE,
-	//'compress' => FALSE,
 	'autoinit'=>TRUE,
-	'stricton' => FALSE,
-	//'failover' => array(),
-	//'save_queries' => TRUE
+	'stricton' => FALSE
 );
-
-// ORACLE DEMO 
-// DBID=1
-/*
-$db['XZHC'] = array(
-	'hostname' =>'(DESCRIPTION =    (ADDRESS_LIST =      (ADDRESS = (PROTOCOL = TCP)(HOST = 10.9.3.21)(PORT = 1521))    )    (CONNECT_DATA =      (SERVICE_NAME = SJJC)    )  )',
-	'username' => 'xzhc',
-	'password' => 'xzhc',
-	'dbdriver' => 'oci8',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'db_debug' => FALSE
-);
-
-//DBID=2
-$db['QFM'] = $db['XZHC'];
-*/
 
 $db['userdata'] = $db['sqlsvr'];
 $db['userdata']['database'] = 'jdproduct';
 $db['userdata']['pconnect'] = TRUE;
+
+// mysql
+$db['mysql'] = $db['sqlsvr'];
+$db['mysql']['username'] = 'root';
+$db['mysql']['password'] = 'root';
+$db['mysql']['dbdriver'] = 'mysqli';
+$db['mysql']['database'] = 'cbpc';
+
+

@@ -4,6 +4,9 @@ var DBSourse = [{
 }, {
   value: 1,
   text: 'api管理'
+}, {
+  value: 2,
+  text: 'mysql测试库'
 }];
 
 var isInited = false;
