@@ -324,7 +324,7 @@ class CI_DB_result {
 		return $str;
 	}
 	
-	function reConv($str,$blobType,$dbID,$blobTag)
+	function reConv($str,$blobType,$dbType,$blobTag)
 	{	
 		if($blobType != '0'){
 			$type = '';
@@ -354,12 +354,13 @@ class CI_DB_result {
 		$encode_Arr = array('ASCII','UTF-8','GBK','GB2312','EUC-CN');	
 		$encode = mb_detect_encoding($str,$encode_Arr);
 		if($encode == 'UTF-8'){		
-			//$str = mb_convert_encoding($str,'UTF-8',$encode_Arr);
-			if($dbID == 9){
-				return $str;			
-			}else{
+			// $str = mb_convert_encoding($str,'UTF-8',$encode_Arr);
+      // return $str;
+       if($dbType == 'sqlserver'){
 				return iconv('GBK','UTF-8',$str);
-			}
+			}else{// mysql oracle
+	        return $str;
+      }
 		}elseif($encode == 'CP936'){
 			$encode = 'GBK';
 			return iconv('GBK','UTF-8',$str);
@@ -376,7 +377,7 @@ class CI_DB_result {
 	 * @return	json
 	 * Mod by 李宾@20150305
 	 */
-	public function result_json($blobType=0,$dbID=0,$blobTag=0)
+	public function result_json($blobType=0,$ApiInfo,$blobTag=0)
 	{
 		if (count($this->result_array) > 0)
 		{
@@ -422,9 +423,8 @@ class CI_DB_result {
 						}
 					}
 				}
-				
-				$iValue = trim($this->reConv($row[$str],$flag,$dbID,$blobTag));	
-				$strName = trim($this->reConv($str,0,$dbID,$blobTag));
+				$iValue = trim($this->reConv($row[$str],$flag,$ApiInfo->DBType,$blobTag));	
+				$strName = trim($this->reConv($str,0,$ApiInfo->DBType,$blobTag));
 				
 				if ($i == 0 ) $strJSON .= '{';
 				$strJSON .= '"' .$strName.'":"' . $iValue . '"';
@@ -507,7 +507,7 @@ class CI_DB_result {
 	}
 
 	//返回datatables所用数据格式
-	public function result_datatable_json($blobType=0,$dbID=0,$blobTag=0)
+	public function result_datatable_json($blobType=0,$ApiInfo,$blobTag=0)
 	{
 		if (count($this->result_array) > 0)
 		{
@@ -562,8 +562,8 @@ class CI_DB_result {
 					}
 				}
 				
-				$iValue = trim($this->reConv($row[$str],$flag,$dbID,$blobTag));	
-				$strName = trim($this->reConv($str,0,$dbID,$blobTag));
+				$iValue = trim($this->reConv($row[$str],$flag,$ApiInfo->DBType,$blobTag));	
+				$strName = trim($this->reConv($str,0,$ApiInfo->DBType,$blobTag));
 				
 				if ($i == 0 ) $strJSON .= '[';
 				$strJSON .= '"' . $iValue . '"';
