@@ -231,13 +231,12 @@ class ApiModel extends CI_Model
             $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]] = $this->load->database($this->DBLIST[$ApiInfo->DBID], true);
         }
 
-        //$LOGINDB = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]];
 
         if ($mode == 0) {
-            //$query = $LOGINDB->query($this->TransToGBK($SQLStr),$aParams);
+          
             $SQLStr = $this->handleStr($SQLStr, $aParams);
-            if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle') {
-                //钞纸机检在线质量检测系统,编码问题
+            if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle' || $this->DBTYPE[$ApiInfo->DBID] == 'mysql') {
+                
                 //$LOGINDB->cache_on();
                 $query = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]]->query($SQLStr);
             } else {
@@ -254,8 +253,8 @@ class ApiModel extends CI_Model
             }
             //$query = $LOGINDB->query($this->TransToGBK($SQLStr),$aParams);
             $SQLStr = $this->handleStr($SQLStr, $aParams);
-            if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle') {
-                //钞纸机检在线质量检测系统,编码问题
+            if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle' || $this->DBTYPE[$ApiInfo->DBID] == 'mysql') {
+                
                 //$LOGINDB->cache_on();
                 $query = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]]->query($SQLStr);
             } else {
@@ -272,10 +271,10 @@ class ApiModel extends CI_Model
             } else {
                 $SQLStr = "select * from (" . $SQLStr . ")where rownum<11";
             }
-            //$query = $LOGINDB->query($this->TransToGBK($SQLStr),$aParams);
+            
             $SQLStr = $this->handleStr($SQLStr, $aParams);
-            if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle') {
-                //钞纸机检在线质量检测系统,编码问题
+            if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle' || $this->DBTYPE[$ApiInfo->DBID] == 'mysql') {
+                
                 //$LOGINDB->cache_on();
                 $query = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]]->query($SQLStr);
             } else {
@@ -287,12 +286,12 @@ class ApiModel extends CI_Model
             //不使用官方替换字符串的函数(在处理ORCAL的查询语句时会报错);
             //$query = $LOGINDB->query($this->TransToGBK($SQLStr),$aParams);
             $SQLStr = $this->handleStr($SQLStr, $aParams);
-            if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle') {
-                //钞纸机检在线质量检测系统,编码问题
+            if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle' || $this->DBTYPE[$ApiInfo->DBID] == 'mysql') {                
                 //$LOGINDB->cache_on();
                 $query = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]]->query($SQLStr);
-            } else {
+            } else{
                 //$LOGINDB->cache_on();
+                echo $SQLStr;
                 $query = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]]->query($this->TransToGBK($SQLStr));
             }
             
