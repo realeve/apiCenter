@@ -379,7 +379,7 @@ define(['../plugins/echarts/js/extension/dataTool.min', '../plugins/echarts/js/e
           if (!objRequest.lineShadow) {
             obj.lineStyle = {
               normal: {
-                width: objRequest.lineAreaStyle ? 0 : 3,
+                width: objRequest.lineAreaStyle ? 0 : 2,
                 type: 'solid',
                 shadowColor: 'rgba(0,0,0,0)',
                 shadowBlur: 0,
@@ -508,7 +508,7 @@ define(['../plugins/echarts/js/extension/dataTool.min', '../plugins/echarts/js/e
           if (!objRequest.lineShadow) {
             NewData['series'][i].lineStyle = {
               normal: {
-                width: objRequest.lineAreaStyle ? 0 : 3,
+                width: objRequest.lineAreaStyle ? 0 : 2,
                 type: 'solid',
                 shadowColor: 'rgba(0,0,0,0)',
                 shadowBlur: 0,
@@ -621,7 +621,7 @@ define(['../plugins/echarts/js/extension/dataTool.min', '../plugins/echarts/js/e
         if (!objRequest.lineShadow) {
           NewData['series'][0].lineStyle = {
             normal: {
-              width: objRequest.lineAreaStyle ? 0 : 3,
+              width: objRequest.lineAreaStyle ? 0 : 2,
               type: 'solid',
               shadowColor: 'rgba(0,0,0,0)',
               shadowBlur: 0,
@@ -736,7 +736,7 @@ define(['../plugins/echarts/js/extension/dataTool.min', '../plugins/echarts/js/e
         if (!objRequest.lineShadow) {
           NewData['series'][0].lineStyle = {
             normal: {
-              width: objRequest.lineAreaStyle ? 0 : 3,
+              width: objRequest.lineAreaStyle ? 0 : 2,
               type: 'solid',
               shadowColor: 'rgba(0,0,0,0)',
               shadowBlur: 0,
@@ -2500,7 +2500,7 @@ define(['../plugins/echarts/js/extension/dataTool.min', '../plugins/echarts/js/e
           if (!objRequest.lineShadow) {
             NewData['series'][i].lineStyle = {
               normal: {
-                width: objRequest.lineAreaStyle ? 0 : 3,
+                width: objRequest.lineAreaStyle ? 0 : 2,
                 type: 'solid',
                 shadowColor: 'rgba(0,0,0,0)',
                 shadowBlur: 0,
@@ -2539,7 +2539,7 @@ define(['../plugins/echarts/js/extension/dataTool.min', '../plugins/echarts/js/e
         if (!objRequest.lineShadow) {
           NewData['series'][0].lineStyle = {
             normal: {
-              width: objRequest.lineAreaStyle ? 0 : 3,
+              width: objRequest.lineAreaStyle ? 0 : 2,
               type: 'solid',
               shadowColor: 'rgba(0,0,0,0)',
               shadowBlur: 0,
@@ -2578,7 +2578,7 @@ define(['../plugins/echarts/js/extension/dataTool.min', '../plugins/echarts/js/e
         if (!objRequest.lineShadow) {
           NewData['series'][0].lineStyle = {
             normal: {
-              width: objRequest.lineAreaStyle ? 0 : 3,
+              width: objRequest.lineAreaStyle ? 0 : 2,
               type: 'solid',
               shadowColor: 'rgba(0,0,0,0)',
               shadowBlur: 0,
