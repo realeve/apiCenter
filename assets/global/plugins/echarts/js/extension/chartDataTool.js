@@ -4010,7 +4010,7 @@ define(['../plugins/echarts/js/extension/dataTool.min', '../plugins/echarts/js/e
       },
       series: {
         type: 'wordCloud',
-        sizeRange: [20, 120],
+        sizeRange: [15, 120],
         rotationRange: [-90, 90],
         rotationStep: 1,
         //'circle', 'cardioid', 'diamond', 'triangle-forward', 'triangle', 'pentagon', 'star'
@@ -4025,7 +4025,7 @@ define(['../plugins/echarts/js/extension/dataTool.min', '../plugins/echarts/js/e
               //   Math.round(Math.random() * 120),
               //   Math.round(Math.random() * 180)
               // ].join(',') + ')';
-              var len = objRequest.color.length % param.dataIndex;
+              var len = param.dataIndex % objRequest.color.length;
               return objRequest.color[len];
             }
           }
