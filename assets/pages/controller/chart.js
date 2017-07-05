@@ -392,9 +392,10 @@
              if (objRequest.data.rows) {
                option[i][0] = chartDataTool.getOption(objRequest, echarts);
                // 轴样式修改
-               if (typeof option[i][0].tooltip.axisPointer != 'undefined' && option[i][0].tooltip.axisPointer.type == 'line') {
-                 option[i][0].tooltip.axisPointer.type = 'cross';
-               }
+               // if (typeof option[i][0].tooltip.axisPointer != 'undefined' && option[i][0].tooltip.axisPointer.type == 'line') {
+               //   option[i][0].tooltip.axisPointer.type = 'cross';
+               // }
+
                handleChartData(i);
              }
              renderedChart++;
