@@ -349,6 +349,17 @@
        function handleChartData(i) {
 
          if (option[i][0] !== false) {
+
+           if (option[i][0].title.length == 4) {
+             var title = [];
+             option[i][0].title.map(function(item, i) {
+               if (i != 2) {
+                 title.push(item);
+               }
+             })
+             option[i][0].title = title;
+           }
+
            myChart[i] = echarts.init(document.getElementById("eChart-main" + i), curTheme);
            myChart[i].setOption(option[i][0]);
            regressionTag[i] = false;
