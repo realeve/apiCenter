@@ -4175,7 +4175,7 @@ define(['../plugins/echarts/js/extension/dataTool.min', '../plugins/echarts/js/e
   // 直方图
   var getHistogramOption = function(objRequest) {
     var seriesData = Data.data.map(function(item) {
-      return item;
+      return parseFloat(item[0]);
     });
     var bins = ecStat.histogram(seriesData);
 
