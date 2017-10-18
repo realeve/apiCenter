@@ -10,17 +10,17 @@ class ApiModel extends CI_Model
 
     const TBL_USR                   = 'tblUser'; //20 用户信息
     const TBL_DPMT                  = 'tblDepartMent'; //21 用户所在部门/分组
-      
+
     const TBL_DB                    = 'tblDataBaseInfo'; //29 数据库列表
     const TBL_API                   = 'tblApi'; //30 API列表
     const TBL_SELECT                = 'tblSettings_Select_List'; //31 下拉框列表
-   
+
     const TBL_SETTINGS_MENULIST     = 'tbl_menu_list'; //33 菜单列表
     const TBL_SETTINGS_MENUDETAIL   = 'tbl_menu_detail'; //34 菜单子项
 
     //全局变量
-    public $DBLIST = array(0 => 'userdata', 1 => 'sqlsvr', 2 => 'cbpc', 3 => 'smzdm');
-    public $DBTYPE = array(0=> 'sqlserver', 1 => 'sqlserver',2=>'mysql',3=>'mysql');
+    public $DBLIST = array(0 => 'userdata', 1 => 'sqlsvr');
+    public $DBTYPE = array(0=> 'sqlserver', 1 => 'sqlserver');
     public $LOGINDB;
 
     public function __construct()
@@ -47,10 +47,10 @@ class ApiModel extends CI_Model
         $tblName = array(
             20 => self::TBL_USR,
             21 => self::TBL_DPMT,
-           
+
             29 => self::TBL_DB,
             30 => self::TBL_API,
-           
+
             33 => self::TBL_SETTINGS_MENULIST,
             34 => self::TBL_SETTINGS_MENUDETAIL,
         );
@@ -221,7 +221,7 @@ class ApiModel extends CI_Model
         使用BASE64编码,避免UTF2GBK时某些字符转换失败的问题而导致后续的  标记符?  在替换时造成的各种不兼容;
          */
         $ApiInfo->DBType = $this->DBTYPE[$ApiInfo->DBID];
-        
+
         $SQLStr = $this->TransToUTF(base64_decode($ApiInfo->strSQL));
         //是否为BLOB字段
         $isBlob  = isset($dataParams['blob']) ? $dataParams['blob'] : 0;
@@ -233,10 +233,10 @@ class ApiModel extends CI_Model
 
 
         if ($mode == 0) {
-          
+
             $SQLStr = $this->handleStr($SQLStr, $aParams);
             if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle' || $this->DBTYPE[$ApiInfo->DBID] == 'mysql') {
-                
+
                 //$LOGINDB->cache_on();
                 $query = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]]->query($SQLStr);
             } else {
@@ -254,7 +254,7 @@ class ApiModel extends CI_Model
             //$query = $LOGINDB->query($this->TransToGBK($SQLStr),$aParams);
             $SQLStr = $this->handleStr($SQLStr, $aParams);
             if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle' || $this->DBTYPE[$ApiInfo->DBID] == 'mysql') {
-                
+
                 //$LOGINDB->cache_on();
                 $query = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]]->query($SQLStr);
             } else {
@@ -271,10 +271,10 @@ class ApiModel extends CI_Model
             } else {
                 $SQLStr = "select * from (" . $SQLStr . ")where rownum<11";
             }
-            
+
             $SQLStr = $this->handleStr($SQLStr, $aParams);
             if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle' || $this->DBTYPE[$ApiInfo->DBID] == 'mysql') {
-                
+
                 //$LOGINDB->cache_on();
                 $query = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]]->query($SQLStr);
             } else {
@@ -286,15 +286,15 @@ class ApiModel extends CI_Model
             //不使用官方替换字符串的函数(在处理ORCAL的查询语句时会报错);
             //$query = $LOGINDB->query($this->TransToGBK($SQLStr),$aParams);
             $SQLStr = $this->handleStr($SQLStr, $aParams);
-            if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle' || $this->DBTYPE[$ApiInfo->DBID] == 'mysql') {                
+            if ($this->DBTYPE[$ApiInfo->DBID] == 'oracle' || $this->DBTYPE[$ApiInfo->DBID] == 'mysql') {
                 //$LOGINDB->cache_on();
                 $query = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]]->query($SQLStr);
             } else{
                 //$LOGINDB->cache_on();
-                echo $SQLStr;
+                //echo $SQLStr;
                 $query = $this->LOGINDB[$this->DBLIST[$ApiInfo->DBID]]->query($this->TransToGBK($SQLStr));
             }
-            
+
             $strJson = $query->result_datatable_json($isBlob, $ApiInfo, $blobTag);
         }
         //$query->free_result(); //清理内存
@@ -379,7 +379,7 @@ class ApiModel extends CI_Model
             $LOGINDB = $this->LOGINDB['userdata'];
           }
         }
-		
+
         foreach ($data['utf2gbk'] as $str) {
             $data[$str] = $this->TransToGBK($data[$str]);
         }
@@ -397,7 +397,7 @@ class ApiModel extends CI_Model
     }
 
     public function delete($data)
-    {	
+    {
 		if(isset($data['dbid'])){
 			$LOGINDB = $this->load->database($this->DBLIST[$data['dbid']],true);
 		}else{
@@ -407,7 +407,7 @@ class ApiModel extends CI_Model
 				$LOGINDB = $this->LOGINDB['userdata'];
 			}
 		}
-        
+
         if(isset($data['mainid'])){
             $condition[$data['mainid']] = $data[$data['mainid']];
         }else{

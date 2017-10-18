@@ -88,14 +88,3 @@ $db['userdata'] = $db['sqlsvr'];
 $db['userdata']['database'] = 'jdproduct';
 $db['userdata']['pconnect'] = TRUE;
 
-// mysql
-$db['mysql'] = $db['sqlsvr'];
-$db['mysql']['username'] = 'root';
-$db['mysql']['password'] = 'root';
-$db['mysql']['dbdriver'] = 'mysqli';
-$db['mysql']['database'] = 'cbpc';
-
-$db['smzdm'] = $db['mysql'];
-$db['smzdm']['database'] = 'smzdm';
-
-

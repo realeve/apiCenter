@@ -4,12 +4,6 @@ var DBSourse = [{
 }, {
   value: 1,
   text: 'api管理'
-}, {
-  value: 2,
-  text: 'cbpc'
-}, {
-  value: 3,
-  text: 'smzdm'
 }];
 
 var isInited = false;
